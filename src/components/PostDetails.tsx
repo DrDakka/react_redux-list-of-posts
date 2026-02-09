@@ -5,7 +5,7 @@ import { CommentData } from '../types/Comment';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import {
   addComment,
-  deleteComment,
+  removeComment,
   fetchComments,
 } from '../features/comments/commentsSlice';
 
@@ -39,7 +39,7 @@ export const PostDetails: React.FC = () => {
   };
 
   const handleDeleteComment = (commentId: number) => {
-    dispatch(deleteComment(commentId));
+    dispatch(removeComment(commentId));
   };
 
   if (!post) {

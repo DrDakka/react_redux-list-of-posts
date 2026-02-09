@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { Comment } from '../../types/Comment';
 import * as commentsApi from '../../api/comments';
 
@@ -46,11 +46,6 @@ const commentsSlice = createSlice({
       state.loaded = false;
       state.hasError = false;
     },
-    deleteComment: (state, action: PayloadAction<number>) => {
-      state.items = state.items.filter(
-        comment => comment.id !== action.payload,
-      );
-    },
   },
   extraReducers: builder => {
     builder
@@ -80,5 +75,5 @@ const commentsSlice = createSlice({
   },
 });
 
-export const { clearComments, deleteComment } = commentsSlice.actions;
+export const { clearComments } = commentsSlice.actions;
 export default commentsSlice.reducer;
